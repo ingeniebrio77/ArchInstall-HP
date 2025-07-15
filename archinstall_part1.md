@@ -1,0 +1,3 @@
+# Guía de Instalación: Arch Linux Seguro y Moderno
+**Versión: 1.0**
+... (todo el resto del contenido) ...
