@@ -1,6 +1,6 @@
 # Guía de Instalación: Arch Linux Seguro y Moderno (HP Desktop M01-F1xxx)
-**Versión: 2.1 (reajuste DE/trilingüe 2026-09-09: reflector timer con `--country DE`,
-timezone `Europe/Berlin`, locales de/en/es, `KEYMAP=us`, `LANG=de_DE.UTF-8`)**
+**Versión: 2.3 (Parte 5 swap zram 2026-09-09: zram-generator 16G zstd, persistencia
+por generador, sin hibernación)**
 **Autor: renato — primera instalación Arch, documentada sobre la marcha**
 
 > Esta guía fusiona las notas originales de instalación (`notas-originales-part1.md`)
@@ -275,6 +275,85 @@ Reactivar Secure Boot en firmware tras comprobar el primer arranque firmado.
 
 ---
 
+## Parte 4 — Snapshots btrfs con snapper (post-instalación, 2026-09-09)
+
+`snapper` + `snap-pac`: snapshots automáticos (timeline + pre/post en cada `pacman`) para
+`/` y `/home`. Instalado y verificado en este equipo.
+
+> Particularidad de este layout: `/` **no** es un subvolumen `@`, es el FS_TREE
+> (top-level, ID 5). El kernel permite snapshotearlo igualmente (probado:
+> crear+borrar snapshot de `/` funciona). Los subvolúmenes anidados (`home`, `srv`,
+> `var`, `var/log`…) quedan **excluidos** de los snapshots de `/` por diseño btrfs
+> (no se cruzan fronteras de subvolumen) — de ahí la config separada para `/home`.
+> Sin GRUB no hay boot-a-snapshot: los snapshots sirven para recuperar ficheros y
+> rollback manual, no para arranque con un clic.
+
+```bash
+sudo pacman -S snapper snap-pac
+sudo snapper -c root create-config /
+sudo snapper -c home create-config /home
+```
+
+Límites ajustados (raíz con historial horario, home sin horarios para no agitar Steam):
+
+```bash
+# root: hourly 5, daily 7, monthly 2, yearly 0, number 10
+sudo sed -i -e 's/^TIMELINE_LIMIT_HOURLY="10"/TIMELINE_LIMIT_HOURLY="5"/' \
+  -e 's/^TIMELINE_LIMIT_DAILY="10"/TIMELINE_LIMIT_DAILY="7"/' \
+  -e 's/^TIMELINE_LIMIT_MONTHLY="10"/TIMELINE_LIMIT_MONTHLY="2"/' \
+  -e 's/^TIMELINE_LIMIT_YEARLY="10"/TIMELINE_LIMIT_YEARLY="0"/' \
+  -e 's/^NUMBER_LIMIT="50"/NUMBER_LIMIT="10"/' /etc/snapper/configs/root
+# home: igual pero TIMELINE_LIMIT_HOURLY="0"
+sudo sed -i -e 's/^TIMELINE_LIMIT_HOURLY="10"/TIMELINE_LIMIT_HOURLY="0"/' \
+  -e 's/^TIMELINE_LIMIT_DAILY="10"/TIMELINE_LIMIT_DAILY="7"/' \
+  -e 's/^TIMELINE_LIMIT_MONTHLY="10"/TIMELINE_LIMIT_MONTHLY="2"/' \
+  -e 's/^TIMELINE_LIMIT_YEARLY="10"/TIMELINE_LIMIT_YEARLY="0"/' \
+  -e 's/^NUMBER_LIMIT="50"/NUMBER_LIMIT="10"/' /etc/snapper/configs/home
+sudo systemctl enable --now snapper-timeline.timer snapper-cleanup.timer snapper-boot.timer
+```
+
+Uso diario:
+
+```bash
+sudo snapper -c root list                    # ver snapshots (0 = current)
+sudo snapper -c home create -d "antes de tocar X"   # manual
+# recuperar un fichero: copiar desde /.snapshots/N/snapshot/... o
+# /home/.snapshots/N/snapshot/... (los hooks snap-pac ya cubren cada Syu con pre/post)
+```
+
+Verificado: snapshot `boot` automático + par pre/post del primer `Syu` creados y
+listados correctamente; limpieza por límites activa.
+
+---
+
+## Parte 5 — Swap comprimida con zram (post-instalación, 2026-09-09)
+
+La instalación original no creó swap (`free` mostraba `Swap: 0B`). Con 62G de RAM no
+hace falta hibernar, pero sí un colchón contra presión de memoria/OOM. Solución:
+**zram de 16G con zstd** (swap en RAM comprimida, sin gastar disco; inútil para
+hibernar — zram se borra al apagar — y no se necesita aquí).
+
+```bash
+sudo pacman -S --needed zram-generator
+printf '[zram0]\nzram-size = 16384\ncompression-algorithm = zstd\nswap-priority = 100\n' \
+  | sudo tee /etc/systemd/zram-generator.conf
+sudo systemctl daemon-reload
+sudo systemctl start 'systemd-zram-setup@zram0.service'
+```
+
+No hay que habilitar nada más: el generador crea `dev-zram0.swap` bajo
+`swap.target.wants` y **se activa solo en cada arranque**. Se deja `swappiness=60`
+por defecto (con 62G de RAM el ajuste fino es marginal).
+
+Verificado en este equipo:
+
+```bash
+swapon --show   # /dev/zram0 partition 16G, prio 100
+free -h | grep -i swap   # Swap: 15Gi
+```
+
+---
+
 ## Apéndice A — Diferencias notas originales vs realidad (todas verificadas)
 
 | Tema | Notas originales | Realidad |
@@ -308,6 +387,9 @@ timedatectl | grep "Time zone"            # Europe/Berlin
 grep -v "^#" /etc/locale.gen | grep -v "^$"  # de_DE, es_ES, en_US
 localectl                     # LANG=de_DE.UTF-8, VC Keymap: us
 systemctl is-enabled reflector.timer     # enabled
+sudo snapper list-configs                 # root + home
+systemctl list-timers | grep snapper      # timeline + cleanup + boot
+swapon --show                             # /dev/zram0 16G (Parte 5)
 ```
 
 ## Apéndice C — Archivos originales
