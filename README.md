@@ -32,6 +32,8 @@ La guía es [`ArchInstall-Guia.md`](ArchInstall-Guia.md):
 
 ```
 ArchInstall-Guia.md      # la guía (v2.3)
+VM-Windows11-ToneStudio-RC5.md  # VM Win11 QEMU para BOSS RC-5 Tone Studio
+Audio-Produccion-PipeWire-EasyEffects.md  # audio pro: quantum 256, 2 interfaces, EasyEffects
 Readmi.md                # Parte 2 redactada original
 Prompts.md               # tutorial de referencia
 notas-originales-part1.md# notas crudas de la instalación real
