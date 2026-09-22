@@ -22,6 +22,11 @@ La guía es [`ArchInstall-Guia.md`](ArchInstall-Guia.md):
 | 5 | Swap comprimida con zram |
 | Apéndices | Diferencias notas-vs-realidad, verificaciones, archivos originales |
 
+Guías adicionales post-instalación:
+
+- [`VM-Windows11-ToneStudio-RC5.md`](VM-Windows11-ToneStudio-RC5.md) — VM Win11 en QEMU para BOSS RC-5 Tone Studio.
+- [`Audio-Produccion-PipeWire-EasyEffects.md`](Audio-Produccion-PipeWire-EasyEffects.md) — audio pro: quantum 256, Alesis + Behringer, EasyEffects.
+
 ## Uso
 
 1. Lee la guía entera antes de tocar el disco (la Parte 1 **borra** el NVMe).

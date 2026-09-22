@@ -1,0 +1,10 @@
+# Docs ArchInstall-HP: ignora binarios y temporales
+*.qcow2
+*.iso
+*.img
+*.vmdk
+*.ova
+.DS_Store
+*~
+*.swp
+/.snapshots/
