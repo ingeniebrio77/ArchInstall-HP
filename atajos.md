@@ -35,6 +35,7 @@
 | `Super+Shift+B` | Bypass EasyEffects on/off (`toggle-bypass.sh`, no toca routing) |
 | `Super+R` | SongRec: escucha directa ↔ ambiente (`songrec-source.sh`; reabrir GUI tras cambiar) |
 | `Super+O` | Preset Eris E3.5 ↔ DT 990 Pro (`ee-preset.sh`, ~12 s sin audio al conmutar) |
+| `Super+Shift+R` | Reparar audio: re-enlaza salida EE (`relink-audio.sh`) |
 
 ## VM Windows 11 (ver `VM-Windows11-ToneStudio-RC5.md`)
 
