@@ -112,3 +112,19 @@ Axiom (USB + DIN→io|2) → pista MIDI → sinte ACE → Master
   snapshot que fija los bloques viejos se borra o caduca. Tras verificar que
   Steam y Ryubing exponen todo, borrar el snapshot home #171 ("Antes de
   migrar") devuelve ~165G libres: `sudo snapper -c home delete 171`.
+
+## 10. Suite KDE applications — fuera (2026-10-20 tarde)
+
+- Se eliminó el grupo `kde-applications` completo (~174 paquetes: kate,
+  konqueror, k3b, kmail/kontact, calligra, marble, 43 juegos, PIM akonadi...),
+  más 6 zánganos posteriores y ~141 huérfanos (hasta el `mariadb` embebido de
+  akonadi cayó). `pacman -Qdtq` = 0.
+- Del grupo quedan solo `kdeconnect`, `kdenlive` y
+  `signon-kwallet-extension` (pinado por kdeconnect).
+- Fuera duplicados: `alacritty` (vives kitty) e `yazi` (vives ranger).
+- Visores nuevos vim-style: `zathura` + `zathura-pdf-mupdf` (PDF)
+  e `imv` (imágenes).
+- Datos de usuario de apps muertas borrados con snapshot home previo:
+  `~/.local/share/akonadi` (117M) y ~30 rc de kate/konsole/kmail/kwin/kmix/
+  konqueror. Conservados a propósito: `kdeglobals`, `kdeconnect…`,
+  `kdenlive…`, `kwallet…` y `~/.config/containers` (podman).
