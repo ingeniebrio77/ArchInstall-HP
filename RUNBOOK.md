@@ -93,3 +93,22 @@ Axiom (USB + DIN→io|2) → pista MIDI → sinte ACE → Master
 ## 8. Atajos
 
 `Super+/` muestra la ayuda viva (`~/.config/hypr/atajos.md`).
+
+## 9. Juegos sin flatpak (2026-10-20)
+
+- **Flatpak eliminado** del sistema (apps, runtimes nvidia duplicados, remote
+  flathub y el paquete). La GPU no depende de flatpak: el driver del host
+  (`nvidia-open-dkms` + `lib32-nvidia-utils`) alimenta todo lo nativo.
+- **Steam nativo** (`steam` de multilib). Librería migrada con rsync a
+  `~/.local/share/Steam` (9 manifests, 11 juegos, compatdata y shadercache
+  íntegros; `libraryfolders.vdf` corregido a la nueva ruta).
+- **Ryubing (Ryujinx) nativo** en `/opt/ryujinx/bin` (.desktop e ícono en
+  `~/.local/share/`). Datos en `~/.config/Ryujinx` (mismo nombre que usa el
+  nativo): `sdcard` = SD virtual con juegos (27G), `bis` = NAND y saves, keys
+  incluidas. Actualizar: cuando `git.ryujinx.app` vuelva, instalar
+  `ryujinx-bin` de AUR.
+- **Mullvad Browser** nativo (`mullvad-browser-bin` de AUR), perfil nuevo.
+- **Disco y snapshots (btrfs):** borrar datos no libera espacio hasta que el
+  snapshot que fija los bloques viejos se borra o caduca. Tras verificar que
+  Steam y Ryubing exponen todo, borrar el snapshot home #171 ("Antes de
+  migrar") devuelve ~165G libres: `sudo snapper -c home delete 171`.
