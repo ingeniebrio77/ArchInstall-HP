@@ -150,6 +150,14 @@ Axiom (USB + DIN→io|2) → pista MIDI → sinte ACE → Master
   `~/.local/state/vdirsyncer/`).
 - Timer `vdirsyncer.timer` sincroniza cada 30 min (systemd --user). Hasta
   la primera sync autorizada, falla inofensivo — el waybar muestra "libre".
+- **Ban ISP→disroot (2026-10-26):** disroot/mbox drop solo los ports de
+  mail (993/995/465/587/143/110, firma fail2ban) para la IP dinámica de
+  Versatel (1&1 AS8881); 80/443 abren. Vía muerta: Mullvad VPN con
+  `mullvad auto-connect set on` y relay fijado `location de` (FRA).
+  Claves viejas de TB extraídas con firefox_decrypt resultaron caducas:
+  la vigente se introduce con `setup-claves.sh disroot`. Para salir de
+  la VPN algún día: fritz.box → "Conexión nueva" rota la IP y re-test
+  `timeout 5 openssl s_client -connect disroot.org:993 -brief`.
 - Waybar: módulo `custom/calendar` (`agenda.sh`): primer evento + tooltip
   de 3 días; click abre khal.
 - Thunderbird: sin autostart ni atajo; desinstálalo cuando domines aerc
