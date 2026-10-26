@@ -158,6 +158,12 @@ Axiom (USB + DIN→io|2) → pista MIDI → sinte ACE → Master
   la vigente se introduce con `setup-claves.sh disroot`. Para salir de
   la VPN algún día: fritz.box → "Conexión nueva" rota la IP y re-test
   `timeout 5 openssl s_client -connect disroot.org:993 -brief`.
+- **Lección final:** aerc abierto re-reintentando con clave equivocada
+  **banea la IP exit de la VPN también** (fail2ban acumula). Orden
+  correcto: `pkill aerc` → clave validada con 1 login IMAP → recién
+  abrir aerc. Asistente `~/.config/aerc/pon-claves.sh`: pide ambas
+  claves a ciegas, valida cada una con 1 intento y solo si ambas OK
+  abre aerc (kitty) solo. Relay Mullvad fijado `location nl`.
 - Waybar: módulo `custom/calendar` (`agenda.sh`): primer evento + tooltip
   de 3 días; click abre khal.
 - Thunderbird: sin autostart ni atajo; desinstálalo cuando domines aerc
