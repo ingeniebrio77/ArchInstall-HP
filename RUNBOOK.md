@@ -128,3 +128,26 @@ Axiom (USB + DIN→io|2) → pista MIDI → sinte ACE → Master
   `~/.local/share/akonadi` (117M) y ~30 rc de kate/konsole/kmail/kwin/kmix/
   konqueror. Conservados a propósito: `kdeglobals`, `kdeconnect…`,
   `kdenlive…`, `kwallet…` y `~/.config/containers` (podman).
+
+## 11. Correo y calendario en terminal (aerc + khal, 2026-10-26)
+
+- **aerc** (Super+G) = cliente de correo vim-native: ver manual con `man
+  aerc-keybinds` (hjkl, `/`, `n/N`, `:q`, `:m`, `:t`). Cuentas: Disroot +
+  Gmail en `~/.config/aerc/accounts.conf`; claves en `~/.local/state/aerc-cred/`
+  (0600) creadas con `~/.config/aerc/setup-claves.sh` (read -s, nunca por
+  chat). Gmail lleva **app password** (necesita 2FA):
+  myaccount.google.com → Seguridad → Contraseñas de app. HTML → filtro
+  `~/.config/aerc/filters/html` (links -dump con fallback python).
+- **khal** (Super+K) = calendario vim: `hjkl` navegan, `?` ayuda. Lee
+  `~/.calendars/*.ics` que baja **vdirsyncer** desde Google CalDAV. Token
+  OAuth (solo ese camino acepta Google en CalDAV) generado UNA vez por
+  proyecto propio en console.cloud.google.com (habilitar API **CalDAV**,
+  no "Calendar") con `~/.config/vdirsyncer/setup-google.sh` (read -s) y
+  primera `vdirsyncer sync` (abre URL, autorizas, tokens en
+  `~/.local/state/vdirsyncer/`).
+- Timer `vdirsyncer.timer` sincroniza cada 30 min (systemd --user). Hasta
+  la primera sync autorizada, falla inofensivo — el waybar muestra "libre".
+- Waybar: módulo `custom/calendar` (`agenda.sh`): primer evento + tooltip
+  de 3 días; click abre khal.
+- Thunderbird: sin autostart ni atajo; desinstálalo cuando domines aerc
+  (`sudo pacman -Rns thunderbird`).
