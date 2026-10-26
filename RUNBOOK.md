@@ -134,9 +134,12 @@ Axiom (USB + DIN→io|2) → pista MIDI → sinte ACE → Master
 - **aerc** (Super+G) = cliente de correo vim-native: ver manual con `man
   aerc-keybinds` (hjkl, `/`, `n/N`, `:q`, `:m`, `:t`). Cuentas: Disroot +
   Gmail en `~/.config/aerc/accounts.conf`; claves en `~/.local/state/aerc-cred/`
-  (0600) creadas con `~/.config/aerc/setup-claves.sh` (read -s, nunca por
-  chat). Gmail lleva **app password** (necesita 2FA):
-  myaccount.google.com → Seguridad → Contraseñas de app. HTML → filtro
+  (0600) creadas con `~/.config/aerc/setup-claves.sh [gmail|disroot]`
+  (read -s, nunca por chat; sin argumento pide ambas). **Si Gmail grita**
+  *Application-specific password required (185833)*: te equivocaste de
+  contraseña — crea una app password nueva (myaccount.google.com →
+  Seguridad → contraseñas de app; exige 2FA) y re-corre
+  `setup-claves.sh gmail`. Disroot usa su contraseña normal. HTML → filtro
   `~/.config/aerc/filters/html` (links -dump con fallback python).
 - **khal** (Super+K) = calendario vim: `hjkl` navegan, `?` ayuda. Lee
   `~/.calendars/*.ics` que baja **vdirsyncer** desde Google CalDAV. Token
