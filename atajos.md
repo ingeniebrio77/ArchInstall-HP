@@ -2,6 +2,26 @@
 
 > Fuente: `~/.config/hypr/hyprland.conf`. Ver todos en vivo con `Super+/`.
 
+## Dónde vive cada atajo (mapa)
+
+Cada programa guarda SUS teclas — saber dónde buscar es medio trabajo:
+
+| Capa | Archivo | Contiene |
+|---|---|---|
+| Hyprland (compositor) | `~/.config/hypr/hyprland.conf` | todos los `Super+…` (apps, foco, ws, audio, VM, quake, sesiones) |
+| Scripts detrás de los binds | `~/.config/hypr/*.sh` | `quake.sh`, `sesion.sh`, `vol.sh`, `ee-preset.sh`, … |
+| Correo aerc | `~/.config/aerc/binds.conf` | teclas vim por contexto (`[messages]`, `[compose]`…); `?` dentro de aerc muestra la ayuda del contexto |
+| Terminal kitty | `~/.config/kitty/kitty.conf` | sin keybinds propias — todo por defecto de kitty (el archivo es solo tema/colores) |
+| Shell fish | `~/.config/fish/conf.d/abbrs.fish` | abreviaturas (`upds`, `syncmail`, `gs`…); se cargan al abrir cada fish; ver con `abbr --show` |
+| Funciones fish viejas | `~/.config/fish/functions/` | fzf, z, yt, tide (no editar a mano) |
+
+Consulta en vivo: `hyprctl binds` (Hyprland) · `abbr --show` (fish) · `?` (dentro de aerc).
+
+Criterio de asignación (para atajos futuros):
+- Las letras de `Super+letra` están prácticamente agotadas (solo queda `S`, ya usada por el quake): las apps nuevas van a `Super+Shift+letra` o `Super+Ctrl+letra`.
+- `Super+Ctrl+X` = rutinas automatizadas (M mail, S sistema, R SongRec, W BOSS).
+- `Super+Shift+X` = acciones de pantalla/sistema (S captura, E suspender, B bypass…).
+
 ## Ventanas y workspaces
 
 | Atajo | Acción |
