@@ -38,6 +38,19 @@
 | `Super+O` | Preset Eris E3.5 ↔ DT 990 Pro (`ee-preset.sh`, ~12 s sin audio al conmutar) |
 | `Super+Shift+R` | Reparar audio: re-enlaza salida EE (`relink-audio.sh`) |
 
+## Sesiones kitty y terminal desplegable (ver `Sesiones-kitty-Quake.md`)
+
+| Atajo | Acción |
+|---|---|
+| `Super+º` (tecla `grave`, a la izquierda del 1) | Terminal desplegable quake: kitty a pantalla en special workspace, abrir/cerrar en el monitor enfocado |
+| `Super+Ctrl+M` | Sesión mail: aerc + ikhal en ws2 (no duplica lo que ya corre) |
+| `Super+Ctrl+S` | Sesión sistema: btop + journalctl -xf en ws9 (no duplica) |
+
+- Scripts: `~/.config/hypr/quake.sh`, `~/.config/hypr/sesion.sh` (con `mail|sys`).
+- Abreviaturas fish (se expanden al teclear): `~/.config/fish/conf.d/abbrs.fish`
+  → `gs gd gl ga gc gp bra upd upds pdi pori snaps syncmail vol mem disco temps log av vent`.
+  Útil: `upds` = `pacman -Syu` + lista de snapshots snapper; `syncmail` = vdirsyncer + vista de agenda.
+
 ## VM Windows 11 (ver `VM-Windows11-ToneStudio-RC5.md`)
 
 | Atajo | Acción |
