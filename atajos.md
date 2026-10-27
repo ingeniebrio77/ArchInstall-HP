@@ -64,7 +64,7 @@ Criterio de asignación (para atajos futuros):
 |---|---|
 | `Super+S` | Terminal desplegable quake (Shell): kitty a pantalla en special workspace, abrir/cerrar en el monitor enfocado |
 | `Super+Ctrl+M` | Sesión mail: aerc + ikhal en ws2 (no duplica lo que ya corre) |
-| `Super+Ctrl+S` | Sesión sistema: btop + journalctl -xf en ws9 (no duplica) |
+| `Super+Ctrl+S` | Panel sistema desplegable: btop + journalctl -xf encima de todo (special workspace); 2ª pulsación lo esconde, tercera lo vuelve a mostrar. Los procesos siguen vivos mientras está escondido |
 
 - Scripts: `~/.config/hypr/quake.sh`, `~/.config/hypr/sesion.sh` (con `mail|sys`).
 - Abreviaturas fish (se expanden al teclear): `~/.config/fish/conf.d/abbrs.fish`

@@ -22,12 +22,17 @@ Verificación usada: `hyprctl clients -j` → clase `quake`, `ws=-98`,
 Abre ventanas kitty (cada una un toplevel → las tila el layout master) en el
 workspace que le corresponde, **sin duplicar** apps que ya corren (pgrep):
 
-| Sesión | Workspace | Ventanas |
+| Sesión | Dónde fica | Ventanas |
 |---|---|---|
-| `mail` | 2 (HDMI) | aerc, ikhal |
-| `sys` | 9 (DP) | btop, `journalctl -xf` |
+| `mail` | ws2 (HDMI, silencioso) | aerc, ikhal |
+| `sys` | **popup** `special:sys` (encima de todo, cualquier monitor) | btop, `journalctl -xf` |
 
 Atajos: `Super+Ctrl+M` (mail), `Super+Ctrl+S` (sistema).
+
+La sesión `sys` funciona como el quake: primera pulsación crea las ventanas y
+muestra el popup; si ya existen, `Super+Ctrl+S` solo las muestra/esconde
+(`togglespecialworkspace sys`). Los procesos btop/journal siguen vivos con el
+popup escondido; para matarlos de verdad ciérralos con `Super+Q` dentro.
 
 Duplicación evitada con `pgrep -f` anclado a la ruta del binario
 (`(^|/)aerc`, `(^|/)ikhal`...) para no casar con editores u otros procesos que
