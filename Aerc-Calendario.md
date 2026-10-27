@@ -1,5 +1,9 @@
 # aerc + calendario — cheatsheet (2026-10-27)
 
+> 27-10 v2: OAuth Google **en producción** (token sin caducidad semanal), sitio
+> de marca en GitHub Pages (`ingeniebrio77/caldav-site`), y módulo calendario de
+> waybar unificado al estilo del resto.
+
 ## Arranque y credenciales
 - `Super+G` → kitty + aerc con `TERM=xterm-256color` (workaround al cuelgue de
   Vaxis con `xterm-kitty`: ~60 s sin pintar y teclado muerto; verificado 26-10).
@@ -80,8 +84,16 @@
 
 ## Pendientes conocidos
 - Rotada la app password de Gmail el 27-10 → re-guardar con `pon-claves.sh gmail`.
-- Sync Google Calendar: OPERATIVA (27-10). La app OAuth sigue en modo Testing →
-  el refresh token caduca a los ~7 días: cuando el sync empiece a fallar,
-  re-autorizar (setup-google.sh / `vdirsyncer discover google`). Publicar la app
-  en Cloud Console lo elimina, pero exige completar la verificación de marca.
+- Sync Google Calendar: **en producción** (27-10) → el refresh token ya NO caduca
+  a los 7 días. La consola 2026 exige, en "Información de la marca", el bloque
+  Dominio de la app para habilitar "Publicar app": se sirve con GitHub Pages →
+  repo `ingeniebrio77/caldav-site` (index/privacidad/terminos, dominio autorizado
+  `ingeniebrio77.github.io`); **NO borrar el repo**: es la página oficial de la
+  app (https://ingeniebrio77.github.io/caldav-site/).
+- Re-autorización (solo ante revocación: myaccount.google.com/permissions):
+  parar `vdirsyncer.timer`, mover `~/.local/state/vdirsyncer/google_token`,
+  `vdirsyncer discover google` y autorizar (flow loopback automático en
+  127.0.0.1; sin pegar códigos).
+- waybar: `#custom-calendar` añadido a píldoras y hover en `style.css`
+  (mismo estilo Tokyo Night que el resto).
 - Tareas TODO puras: ikhal gestiona eventos; si se quieren TODOs, `todoman` (mismo ecosistema vdir).
