@@ -28,6 +28,7 @@ Guías adicionales post-instalación:
 - [`Audio-Produccion-PipeWire-EasyEffects.md`](Audio-Produccion-PipeWire-EasyEffects.md) — audio pro: quantum 256, Alesis + Behringer, EasyEffects.
 - [`Hyprland-Master-Layout-kitty.md`](Hyprland-Master-Layout-kitty.md) — layout master 50/50 + bug kitty 0.49.2 (fullscreen fantasma) y fix.
 - [`Sesiones-kitty-Quake.md`](Sesiones-kitty-Quake.md) — terminal desplegable quake, sesiones kitty (mail/sys) y abreviaturas fish.
+- [`Monitores-y-Workspaces.md`](Monitores-y-Workspaces.md) — estrategia de dos pantallas (LG frente / Toshiba izquierda), hotplug y toggles.
 
 ## Uso
 
@@ -44,6 +45,7 @@ Audio-Produccion-PipeWire-EasyEffects.md  # audio pro: quantum 256, 2 interfaces
 atajos.md  # atajos de teclado Hyprland
 Hyprland-Master-Layout-kitty.md  # layout master 50/50 + bug kitty 0.49.2 y fix
 Sesiones-kitty-Quake.md  # terminal desplegable quake + sesiones kitty + abbrs fish
+Monitores-y-Workspaces.md  # estrategia de monitores LG/Toshiba + hotplug + workspaces
 Readmi.md                # Parte 2 redactada original
 Prompts.md               # tutorial de referencia
 notas-originales-part1.md# notas crudas de la instalación real

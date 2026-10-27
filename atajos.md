@@ -90,8 +90,8 @@ Criterio de asignación (para atajos futuros):
 | `Super+/` | Ver todos los atajos |
 | `Super+Shift+W` | Cambiar wallpaper |
 | `Super+-/=`, `Super+F2/F3` o teclas brillo | Brillo del monitor |
-| `Super+Z` | Toggle monitor LG Ultrawide |
-| `Super+X` | Toggle TV Toshiba |
+| `Super+Z` | Toggle monitor LG Ultrawide (aplica la política de monitores) |
+| `Super+X` | Toggle TV Toshiba (aplica la política de monitores; detalle en `Monitores-y-Workspaces.md`) |
 | `Super+I` | WiFi |
 | `Super+B` | Bluetooth |
 | `Super+Shift+E` | Suspender (apagar antes la VM Win11) |
