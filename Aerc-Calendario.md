@@ -69,8 +69,19 @@
 - Primera vez / re-autorizar: `~/.config/vdirsyncer/setup-google.sh` (OAuth client_id/secret)
   y marcar calendarios en https://calendar.google.com/calendar/syncselect.
 - Waybar muestra la agenda de hoy (refresco 5 min; tooltip = 3 días).
+- Fix 27-10: el sync fallaba con `NotFoundError` en
+  `x-apple-reminderkit://REMCDReminder/….ics` — recordatorio de Apple copiado al
+  calendario de Gmail cuyo UID con `://` rompe el multiget de CalDAV y aborta
+  TODO el sync (el calendario quedaba vacío). Solución: DELETE del ítem fantasma
+  en el endpoint CalDAV con el UID url-encoded completo (`quote(uid, safe='')`)
+  y el token de `~/.local/state/vdirsyncer/google_token`. Sync limpio → 454
+  eventos bajados. Si reaparece (un móvil lo vuelve a copiar), repetir el
+  DELETE con el href que salga en el error.
 
 ## Pendientes conocidos
 - Rotada la app password de Gmail el 27-10 → re-guardar con `pon-claves.sh gmail`.
-- Sync Google Calendar: pendiente de pasos OAuth en Cloud Console (ver sección calendario).
+- Sync Google Calendar: OPERATIVA (27-10). La app OAuth sigue en modo Testing →
+  el refresh token caduca a los ~7 días: cuando el sync empiece a fallar,
+  re-autorizar (setup-google.sh / `vdirsyncer discover google`). Publicar la app
+  en Cloud Console lo elimina, pero exige completar la verificación de marca.
 - Tareas TODO puras: ikhal gestiona eventos; si se quieren TODOs, `todoman` (mismo ecosistema vdir).
