@@ -22,7 +22,7 @@ Verificación usada: `hyprctl clients -j` → clase `quake`, `ws=-98`,
 Abre ventanas kitty (cada una un toplevel → las tila el layout master) en el
 workspace que le corresponde, **sin duplicar** apps que ya corren (pgrep):
 
-| Sesión | Dónde fica | Ventanas |
+| Sesión | Dónde sale | Ventanas |
 |---|---|---|
 | `mail` | ws2 (HDMI, silencioso) | aerc, ikhal |
 | `sys` | **popup** `special:sys` (encima de todo, cualquier monitor) | btop, `journalctl -xf` |
