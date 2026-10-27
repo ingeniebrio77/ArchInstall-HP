@@ -5,7 +5,7 @@
 ## 1. Terminal desplegable tipo quake (`quake.sh`)
 
 Kitty con `--class quake` vive en un **special workspace** (`special:quake`).
-`Super+º` (bind sobre `grave`, la tecla a la izquierda del 1) la abre/cierra en
+`Super+S` (S de Shell — única letra libre en `Super+letra`) la abre/cierra en
 el monitor enfocado; el contenido persiste (aerc, monitor, lo que tengas
 dentro) aunque la escondas en pantalla.
 

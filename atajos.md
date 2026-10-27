@@ -42,7 +42,7 @@
 
 | Atajo | Acción |
 |---|---|
-| `Super+º` (tecla `grave`, a la izquierda del 1) | Terminal desplegable quake: kitty a pantalla en special workspace, abrir/cerrar en el monitor enfocado |
+| `Super+S` | Terminal desplegable quake (Shell): kitty a pantalla en special workspace, abrir/cerrar en el monitor enfocado |
 | `Super+Ctrl+M` | Sesión mail: aerc + ikhal en ws2 (no duplica lo que ya corre) |
 | `Super+Ctrl+S` | Sesión sistema: btop + journalctl -xf en ws9 (no duplica) |
 
