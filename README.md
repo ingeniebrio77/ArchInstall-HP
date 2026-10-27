@@ -26,6 +26,7 @@ Guías adicionales post-instalación:
 
 - [`VM-Windows11-ToneStudio-RC5.md`](VM-Windows11-ToneStudio-RC5.md) — VM Win11 en QEMU para BOSS RC-5 Tone Studio.
 - [`Audio-Produccion-PipeWire-EasyEffects.md`](Audio-Produccion-PipeWire-EasyEffects.md) — audio pro: quantum 256, Alesis + Behringer, EasyEffects.
+- [`Hyprland-Master-Layout-kitty.md`](Hyprland-Master-Layout-kitty.md) — layout master 50/50 + bug kitty 0.49.2 (fullscreen fantasma) y fix.
 
 ## Uso
 
@@ -40,6 +41,7 @@ ArchInstall-Guia.md      # la guía (v2.3)
 VM-Windows11-ToneStudio-RC5.md  # VM Win11 QEMU para BOSS RC-5 Tone Studio
 Audio-Produccion-PipeWire-EasyEffects.md  # audio pro: quantum 256, 2 interfaces, EasyEffects
 atajos.md  # atajos de teclado Hyprland
+Hyprland-Master-Layout-kitty.md  # layout master 50/50 + bug kitty 0.49.2 y fix
 Readmi.md                # Parte 2 redactada original
 Prompts.md               # tutorial de referencia
 notas-originales-part1.md# notas crudas de la instalación real

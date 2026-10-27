@@ -12,8 +12,9 @@
 | `Super+Q` | Cerrar ventana |
 | `Super+F` | Pantalla completa |
 | `Super+V` | Ventana flotante |
-| `Super+P` | Pseudo-tile |
-| `Super+T` | Alternar split |
+| `Super+P` | Pseudo-tile (no-op con layout master, era de dwindle) |
+| `Super+T` | Intercambiar con la maestra (`swapwithmaster`, layout master) |
+| `Super+K` | Calendario interactivo (ikhal) |
 | `Super+E` | Salir de Hyprland |
 | `Super+H/J/K/L` o flechas | Foco izquierda/abajo/arriba/derecha |
 | `Super+Shift+H/J/K/L` o flechas | Mover ventana |
