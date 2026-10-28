@@ -49,6 +49,9 @@ El Cherry `cherry-wired-keyboard` no envía teclas de consumo (`XF86Audio*` ni b
 |---|---|
 | `Super+G` | Abrir aerc (correo) |
 | `Super+M` | Abrir ranger en `~/Mail` |
+| `Super+F1` | Ver todos los atajos (`atajos.md`) |
+| `Super+F3` | Cheatsheet aerc (en kitty con bat) |
+| `Super+F4` | Cheatsheet ranger (en kitty con bat) |
 | `r` **(en airc)** | Cambiar a ranger en `~/Mail` |
 | `o` **(en ranger)** | Open → `.eml`/`.mbox` se abre con **kitty** visor |
 
