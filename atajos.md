@@ -112,7 +112,8 @@ El Cherry `cherry-wired-keyboard` no envía teclas de consumo (`XF86Audio*` ni b
 | `Super+Shift+S` | Captura de región |
 | `Super+Print` o `Print` o `Fn1+L` (Keychron) | Pantalla completa |
 | `Super+Alt+L` | Bloquear pantalla |
-| `Super+/` | Ver todos los atajos |
+| `Super+/` (o `Super+Shift+7` en teclado alemán) | Ver todos los atajos — *en alemán choca con `Super+Shift+7` = mover a ws7; usa `Super+F1`* |
+| `Super+F1` | Ver todos los atajos (alternativa para teclado alemán, sin conflicto) |
 | `Super+Shift+W` | Cambiar wallpaper |
 | `Super+-/=`, `Super+F2/F3`, `F1/F2` (Cherry) o teclas brillo | Brillo del monitor LG |
 | `Super+Z` | Toggle monitor LG Ultrawide (aplica la política de monitores) |
