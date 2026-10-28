@@ -42,6 +42,16 @@ El Cherry `cherry-wired-keyboard` no envía teclas de consumo (`XF86Audio*` ni b
 - El indicador `custom/kb` de Waybar muestra el layout del teclado principal; **clic** en él rota el layout.
 - El brillo solo funciona en el LG por DDC/CI (bus 3); el Toshiba no soporta DDC/CI.
 
+
+##ABRIR
+
+| Tecla | Acción |
+|---|---|
+| `Super+G` | Abrir aerc (correo) |
+| `Super+M` | Abrir ranger en `~/Mail` |
+| `r` **(en airc)** | Cambiar a ranger en `~/Mail` |
+| `o` **(en ranger)** | Open → `.eml`/`.mbox` se abre con **kitty** visor |
+
 ## Ventanas y workspaces
 
 | Atajo | Acción |
