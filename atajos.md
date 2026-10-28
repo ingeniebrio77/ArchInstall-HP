@@ -22,13 +22,36 @@ Criterio de asignación (para atajos futuros):
 - `Super+Ctrl+X` = rutinas automatizadas (M mail, S sistema, R SongRec, W BOSS).
 - `Super+Shift+X` = acciones de pantalla/sistema (S captura, E suspender, B bypass…).
 
+## Teclado Cherry (USB) y layouts
+
+El Cherry `cherry-wired-keyboard` no envía teclas de consumo (`XF86Audio*` ni brillo): solo manda `F1`–`F12`. Por eso esas teclas están mapeadas en Hyprland:
+
+| Tecla | Acción |
+|---|---|
+| `F1` / `F2` | Brillo del monitor LG -/+ (DDC/CI) |
+| `F3` / `F4` | Volumen -/+ (`easyeffects_sink`, tope 100%) |
+| `F5` | Silenciar volumen |
+| `F6` / `F7` / `F8` | Pista anterior / play-pausa / siguiente (`playerctl`) |
+| `F9` | Silenciar micrófono |
+| `F10` | Filtro nocturno (hyprsunset) |
+| `F11` | Captura de región |
+| `F12` | Bloquear pantalla |
+
+- `Fn+F1…F12` (si el Cherry envía `F13…F24`) tiene las mismas acciones.
+- `Alt+Shift` (izquierdo) rota layouts. El Cherry arranca en **DE** (`de,us,es`); el Keychron conserva el global **US** (`us,es,de`).
+- El indicador `custom/kb` de Waybar muestra el layout del teclado principal; **clic** en él rota el layout.
+- El brillo solo funciona en el LG por DDC/CI (bus 3); el Toshiba no soporta DDC/CI.
+
 ## Ventanas y workspaces
 
 | Atajo | Acción |
 |---|---|
 | `Super+Return` | Terminal (kitty) |
 | `Super+D` | Lanzador (wofi) |
-| `Super+M` | Archivos (dolphin) |
+| `Super+M` | Archivos (ranger en kitty) |
+| `Super+C` | Firefox (navegador) |
+| `Super+G` | Correo (aerc) |
+| `Super+Y` | Ardour (música) |
 | `Super+Q` | Cerrar ventana |
 | `Super+F` | Pantalla completa |
 | `Super+V` | Ventana flotante |
@@ -49,7 +72,7 @@ Criterio de asignación (para atajos futuros):
 
 | Atajo | Acción |
 |---|---|
-| Teclas multimedia subir/bajar/mute | Volumen `easyeffects_sink` con tope 100% (`vol.sh`) |
+| Teclas multimedia (Keychron) o `F3/F4/F5` (Cherry) | Volumen `easyeffects_sink` con tope 100% (`vol.sh`) |
 | Teclas play/next/prev | `playerctl` |
 | `Super+A` / `Super+Shift+A` | Dispositivo siguiente/anterior (`audio-switch.sh`) |
 | `Super+U` | Abrir EasyEffects |
@@ -57,6 +80,8 @@ Criterio de asignación (para atajos futuros):
 | `Super+R` | SongRec: escucha directa ↔ ambiente (`songrec-source.sh`; reabrir GUI tras cambiar) |
 | `Super+O` | Preset Eris E3.5 ↔ DT 990 Pro (`ee-preset.sh`, ~12 s sin audio al conmutar) |
 | `Super+Shift+R` | Reparar audio: re-enlaza salida EE (`relink-audio.sh`) |
+| `Super+Ctrl+R` | Matar SongRec |
+| `Super+Ctrl+A` | Rescate audio: restaura estado sano (`audio-rescate.sh`) |
 
 ## Sesiones kitty y terminal desplegable (ver `Sesiones-kitty-Quake.md`)
 
@@ -68,7 +93,7 @@ Criterio de asignación (para atajos futuros):
 
 - Scripts: `~/.config/hypr/quake.sh`, `~/.config/hypr/sesion.sh` (con `mail|sys`).
 - Abreviaturas fish (se expanden al teclear): `~/.config/fish/conf.d/abbrs.fish`
-  → `gs gd gl ga gc gp bra upd upds pdi pori snaps syncmail vol mem disco temps log av vent`.
+  → `gs gd gl ga gc gp bra upd upds pdi pori snaps syncmail vol mem disco temps log av vent parejas resp`.
   Útil: `upds` = `pacman -Syu` + lista de snapshots snapper; `syncmail` = vdirsyncer + vista de agenda.
 
 ## VM Windows 11 (ver `VM-Windows11-ToneStudio-RC5.md`)
@@ -89,7 +114,7 @@ Criterio de asignación (para atajos futuros):
 | `Super+Alt+L` | Bloquear pantalla |
 | `Super+/` | Ver todos los atajos |
 | `Super+Shift+W` | Cambiar wallpaper |
-| `Super+-/=`, `Super+F2/F3` o teclas brillo | Brillo del monitor |
+| `Super+-/=`, `Super+F2/F3`, `F1/F2` (Cherry) o teclas brillo | Brillo del monitor LG |
 | `Super+Z` | Toggle monitor LG Ultrawide (aplica la política de monitores) |
 | `Super+X` | Toggle TV Toshiba (aplica la política de monitores; detalle en `Monitores-y-Workspaces.md`) |
 | `Super+I` | WiFi |

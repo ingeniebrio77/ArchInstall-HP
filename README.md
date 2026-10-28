@@ -29,6 +29,8 @@ Guías adicionales post-instalación:
 - [`Hyprland-Master-Layout-kitty.md`](Hyprland-Master-Layout-kitty.md) — layout master 50/50 + bug kitty 0.49.2 (fullscreen fantasma) y fix.
 - [`Sesiones-kitty-Quake.md`](Sesiones-kitty-Quake.md) — terminal desplegable quake, sesiones kitty (mail/sys) y abreviaturas fish.
 - [`Monitores-y-Workspaces.md`](Monitores-y-Workspaces.md) — estrategia de dos pantallas (LG frente / Toshiba izquierda), hotplug y toggles.
+- [`Aerc-Calendario.md`](Aerc-Calendario.md) — cheatsheet aerc + calendario (khal/ikhal + vdirsyncer Google).
+- [`RUNBOOK.md`](RUNBOOK.md) — operación diaria: encendido/apagado, audio, rescates, mantenimiento.
 
 ## Uso
 
@@ -46,6 +48,9 @@ atajos.md  # atajos de teclado Hyprland
 Hyprland-Master-Layout-kitty.md  # layout master 50/50 + bug kitty 0.49.2 y fix
 Sesiones-kitty-Quake.md  # terminal desplegable quake + sesiones kitty + abbrs fish
 Monitores-y-Workspaces.md  # estrategia de monitores LG/Toshiba + hotplug + workspaces
+Aerc-Calendario.md      # cheatsheet aerc + calendario Google
+RUNBOOK.md             # operación diaria y rescates
+AGENTS-Detalle.md        # notas narrativas/historial del sistema (fuera de ~/AGENTS.md, consulta bajo demanda)
 Readmi.md                # Parte 2 redactada original
 Prompts.md               # tutorial de referencia
 notas-originales-part1.md# notas crudas de la instalación real
