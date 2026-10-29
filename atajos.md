@@ -135,3 +135,10 @@ El Cherry `cherry-wired-keyboard` no envía teclas de consumo (`XF86Audio*` ni b
 | `Super+B` | Bluetooth |
 | `Super+Shift+E` | Suspender (apagar antes la VM Win11) |
 | `Super+N` | Filtro nocturno (hyprsunset) |
+
+## FABRIC (terminal)
+- `Alt+Y` — Resumir YouTube (pegar link donde queda el cursor)
+- `Alt+W` — Extraer sabiduría (pegar texto donde queda el cursor)
+- `Alt+E` — Sabiduría de YouTube (pegar link donde queda el cursor)
+- `ytr` — Resumir link de YouTube del portapapeles
+- `yew` — Sabiduría del video de YouTube del portapapeles
