@@ -47,9 +47,9 @@ Tras editar el `.container`: `systemctl --user daemon-reload && systemctl --user
 2. En **Settings/Providers**: añadir las keys de las APIs gratuitas deseadas (Gemini, Groq, Mistral, Cerebras, OpenRouter free, etc.).
 3. Generar la **unified key** (`freellmapi-...`) — es la key que usarán los clientes.
 
-## Integración con OpenCode
+## Integración con OpenCode — HECHO (2026-10-30)
 
-Una vez generada la unified key, añadir a `~/.config/opencode/opencode.jsonc` dentro de `providers`:
+Proveedor `freellmapi` añadido a `~/.config/opencode/opencode.jsonc` (la unified key real vive SOLO ahí, chmod 600 — nunca en este repo):
 
 ```jsonc
 "freellmapi": {
@@ -62,7 +62,9 @@ Una vez generada la unified key, añadir a `~/.config/opencode/opencode.jsonc` d
 }
 ```
 
-Recarga en caliente; los modelos free aparecen en el selector como grupo propio.
+Modelos curados expuestos en el selector: `auto`, `gemini-3.8-flash`, `glm-5.3`, `qwen3.8-max`, `claude-sonnet-4-5`, `nemotron-3-ultra-550b`, `gpt-oss-120b` (el catálogo completo son ~284; añadir más = copiar un bloque `models`). Verificado: `/v1/chat/completions` con `auto` → enrutó a `qwen3.8-27b` y respondió en español.
+
+Providers gratuitos configurados: Groq, Cerebras, OpenRouter, NVIDIA (pendiente SMS). Gemini requiere proyecto nuevo sin billing (cuenta prepagada agotada, error 402). GitHub Models fue retirado por GitHub el 2026-07-30; Mistral ya no tiene free tier de API (2026).
 
 ## Seguridad
 
@@ -88,3 +90,7 @@ curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3001/    # 200 = dashb
 curl -s http://127.0.0.1:3001/v1/models | head -c 100               # 401 sin key = API OK
 systemctl --user is-active freellmapi                               # active
 ```
+
+## Problemas conocidos
+
+- **Keys con `fetch failed (UND_ERR_CONNECT_TIMEOUT)` en el dashboard** (2026-10-29): el namespace de red rootless del contenedor a veces arranca roto (sin salida a Internet, aunque el host sí tenga). Fix: `systemctl --user restart freellmapi` y pulsar "Comprobar todo" de nuevo. Si se repite a menudo, revisar la red rootless de Podman (pasta/netavark).
